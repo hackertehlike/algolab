@@ -1,10 +1,10 @@
 ## Defensive Line
-# Category: DP
+### Category: DP
 
-# Problem Statement:
+### Problem Statement:
 Find exactly m disjoint sub-arrays of a given array such that the sum of the elements in each sub-array is equal to a given number k, and the total sum of the elements in all the sub-arrays is maximum.
 
-#Approach:
+### Approach:
 - Precompute the auxiliary vector:
     - If there is no interval ending at i with sum k: -1.
     - If there is an interval ending at i with sum k: the length of the interval.
