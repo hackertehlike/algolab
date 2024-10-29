@@ -1,1 +1,16 @@
-
+| Week | Problem 1 | Problem 2 | Problem 3 | Problem 4 | Problem of the Week |
+|------|-----------|-----------|-----------|-----------|---------------------|
+| 1    | [ ] [Build the Sum](https://github.com/yourusername/algolab/tree/main/week-1/build-the-sum) | [ ] [Dominoes](https://github.com/yourusername/algolab/tree/main/week-1/dominoes) | [ ] [Even Matrices](https://github.com/yourusername/algolab/tree/main/week-1/even-matrices) | [ ] [Even Pairs](https://github.com/yourusername/algolab/tree/main/week-1/even-pairs) | [ ] [POTW](https://github.com/yourusername/algolab/tree/main/week-1/potw) |
+| 2    | [ ] [Beach Bars](https://github.com/yourusername/algolab/tree/main/week-2/beach-bars) | [ ] [Burning Coins](https://github.com/yourusername/algolab/tree/main/week-2/burning-coins) | [ ] [Defensive Line](https://github.com/yourusername/algolab/tree/main/week-2/defensive-line) | [ ] [POTW - Deck of Cards](https://github.com/yourusername/algolab/tree/main/week-2/potw-deck-of-cards) | [ ] [The Great Game](https://github.com/yourusername/algolab/tree/main/week-2/the-great-game) |
+| 3    | [ ] [Ant Challenge](https://github.com/yourusername/algolab/tree/main/week-3/ant-challenge) | [ ] [Buddy Selection](https://github.com/yourusername/algolab/tree/main/week-3/buddy-selection) | [ ] [First Steps with BGL](https://github.com/yourusername/algolab/tree/main/week-3/first-steps-with-bgl) | [ ] [Important Bridges](https://github.com/yourusername/algolab/tree/main/week-3/important-bridges) | [ ] [POTW - James Bond's Sovereigns](https://github.com/yourusername/algolab/tree/main/week-3/potw-james-bonds-sovereigns) |
+| 4    | [ ] [Antenna](https://github.com/yourusername/algolab/tree/main/week-4/antenna) | [ ] [First Hit](https://github.com/yourusername/algolab/tree/main/week-4/first-hit) | [ ] [Hiking Maps](https://github.com/yourusername/algolab/tree/main/week-4/hiking-maps) | [ ] [Hit](https://github.com/yourusername/algolab/tree/main/week-4/hit) | [ ] [POTW - Iron Islands](https://github.com/yourusername/algolab/tree/main/week-4/potw-iron-islands) |
+| 5    | [ ] [Asterix the Gaul](https://github.com/yourusername/algolab/tree/main/week-5/asterix-the-gaul) | [ ] [Boats](https://github.com/yourusername/algolab/tree/main/week-5/boats) | [ ] [Moving Books](https://github.com/yourusername/algolab/tree/main/week-5/moving-books) | [ ] [Severus Snape](https://github.com/yourusername/algolab/tree/main/week-5/severus-snape) | [ ] [Tracking](https://github.com/yourusername/algolab/tree/main/week-5/tracking) |
+| 6    | [ ] [Coin Tossing Tournament](https://github.com/yourusername/algolab/tree/main/week-6/coin-tossing-tournament) | [ ] [Kingdom Defense](https://github.com/yourusername/algolab/tree/main/week-6/kingdom-defense) | [ ] [Knights](https://github.com/yourusername/algolab/tree/main/week-6/knights) | [ ] [POTW - Motorcycles](https://github.com/yourusername/algolab/tree/main/week-6/potw-motorcycles) | [ ] [Tiles](https://github.com/yourusername/algolab/tree/main/week-6/tiles) |
+| 7    | [ ] [POTW - Octopussy](https://github.com/yourusername/algolab/tree/main/week-7/potw-octopussy) | | | | |
+| 8    | | | | | |
+| 9    | | | | | |
+| 10   | | | | | |
+| 11   | | | | | |
+| 12   | | | | | |
+| 13   | | | | | |
+| 14   | | | | | |
