@@ -1,4 +1,4 @@
-### Approach: Min-Cost Max-Flow
+### Approach
 
 This problem can be solved using a **Min-Cost Max-Flow** approach, where we model the days as nodes in a graph, connected to a super-source and super-sink.
 
