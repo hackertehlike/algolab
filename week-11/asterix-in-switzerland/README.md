@@ -1,8 +1,6 @@
 ## Solution Approach
 
-1. **Key Idea**:
-   - A free-standing union exists if there is "trapped surplus" — positive balance that cannot be fully used to pay external debts.
-   - The max-flow algorithm determines whether surplus can be redistributed optimally to satisfy deficits and external debts.
+1. **Key Idea**: A free-standing union exists if there is "trapped surplus" — positive balance that cannot be fully used to pay external debts.
 
 2. **Graph Representation**:
    - **Source to Provinces**: Positive balances (b[i] > 0) are modeled as edges from the source to provinces with capacity equal to their balance.
