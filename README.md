@@ -9,7 +9,6 @@
 | 7    | [x] [Bistro](https://github.com/hackertehlike/algolab/tree/main/week-7/bistro)| [ ] [Germs](https://github.com/hackertehlike/algolab/tree/main/week-7/germs) | [ ] [H1N1](https://github.com/hackertehlike/algolab/tree/main/week-7/h1n1) | [x] [Clues](https://github.com/hackertehlike/algolab/tree/main/week-7/clues) | [x] [Octopussy](https://github.com/hackertehlike/algolab/tree/main/week-7/potw-octopussy) | 
 | 8    | [x] [Maximize It](https://github.com/hackertehlike/algolab/tree/main/week-8/maximize-it) | [x] [Diet](https://github.com/hackertehlike/algolab/tree/main/week-8/diet) | [x] [Inball](https://github.com/hackertehlike/algolab/tree/main/week-8/inball) |[ ] [Casterly Rock](https://github.com/hackertehlike/algolab/tree/main/week-8/casterly-rock) |  [ ] [Attack on King's Landing](https://github.com/hackertehlike/algolab/tree/main/week-8/potw-attack-on-kings-landing) |
 | 9   | [x] [Placing Knights](https://github.com/hackertehlike/algolab/tree/main/week-9/placing-knights) | [x] [Algocoon](https://github.com/hackertehlike/algolab/tree/main/week-9/algocoon) | [x] [Real Estate Market](https://github.com/hackertehlike/algolab/tree/main/week-9/placing-knights) | [x] [Canteen](https://github.com/hackertehlike/algolab/tree/main/week-9/canteen) | [ ] Idefix |
-
 | 10 | | | | | |
 | 11 | [x] [Asterix in Switzerland]((https://github.com/hackertehlike/algolab/tree/main/week-11/asterix-in-switzerland) | | | | |
 
