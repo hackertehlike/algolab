@@ -1,11 +1,23 @@
+///2
+
 #include <iostream>
 #include <vector>
+#include <CGAL/Exact_predicates_inexact_constructions_kernel.h>
+#include <algorithm>
 
-#include <CGAL/Exact_predicates_exact_constructions_kernel.h>
-
-typedef CGAL::Exact_predicates_exact_constructions_kernel K;
+// IF YOU USE EXACT CONSTRUCTIONS, YOU WILL TLE
+typedef CGAL::Exact_predicates_inexact_constructions_kernel K;
 typedef K::Point_2 P;
-typedef K::Segment_2 S;
+
+bool map_part_contains_point(std::vector<P> map_part, P point) {
+  for(int i = 0; i < 3; i++) {
+    // careful: if you just use !left_turn, you miss collinear points
+    // which are technically also in the map part!
+    if (CGAL::right_turn(map_part[2*i], map_part[2*i+1], point))
+      return false;
+  }
+  return true;
+}
 
 void testcase() {
   
@@ -18,64 +30,92 @@ void testcase() {
     hiking_pts.push_back(P(x, y));
   }
   
-  std::vector<S> hiking_paths;
-  for (int i = 0; i < m - 1; ++i) {
-    hiking_paths.push_back(S(hiking_pts[i], hiking_pts[i + 1]));  // Create a segment between p_i and p_(i+1)
-  }
-
-  std::vector<std::vector<S>> map_parts(n);
+  std::vector<std::vector<P>> map_parts;
+  std::vector<std::vector<int>> map_coverage(n);
+  
   
   for(int i = 0; i < n; i++) {
-    int q0, q1, q2, q3, q4, q5;
-    std::cin >> q0 >> q1 >> q2 >> q3 >> q4 >> q5;
-
-    // Create the triangle's vertices
-    P p0(q0, q1), p1(q2, q3), p2(q4, q5);
-
-    // Ensure counter-clockwise orientation
-    // IMPORTANT!!!
-    if (!CGAL::left_turn(p0, p1, p2)) {
-        // Points are in clockwise order, so swap p1 and p2 to make them counterclockwise
-        std::swap(p1, p2);
+    std::vector<P> map_part;
+    
+    for(int j = 0; j < 6; j++) {
+      int x, y; std::cin >> x >> y;
+      
+      map_part.push_back(P(x, y));
     }
-
-    // Now that the points are in counterclockwise order, construct the segments
-    map_parts[i].push_back(S(p0, p1));  // First segment: p0 -> p1
-    map_parts[i].push_back(S(p1, p2));  // Second segment: p1 -> p2
-    map_parts[i].push_back(S(p2, p0));  // Third segment: p2 -> p0
+    
+    for(int j = 0; j < 6; j+=2) {
+      if(!CGAL::left_turn(map_part[j], map_part[j+1], map_part[(j+2)%6])) {
+        std::swap(map_part[j], map_part[j+1]);
+      }
+      // std::cout << map_part[j] << " " << map_part[j+1] << std::endl;
+    }
+    
+    
+    map_parts.push_back(map_part);
+    
+    P start = hiking_pts[0];
+    int prev = map_part_contains_point(map_part, start);
+    int curr = false;
+    
+    for(int j = 1; j < m; j++) {
+      // check which legs are in this map part
+      P end = hiking_pts[j];
+      
+      curr = map_part_contains_point(map_part, end);
+      
+      // both endpoints of the leg are in the map
+      if(prev && curr) {
+        map_coverage[i].push_back(j-1);
+      }
+      
+      prev = curr;
+      start = end;
+    }
   }
-
-  std::vector<std::vector<bool>> coverage(m - 1, std::vector<bool>(n, false));
   
-  for(int j = 0; j < n; j++) {
-    for(int i = 0; i < m - 1; i++) {
-        S s0 =  map_parts[j][0];
-        S s1 =  map_parts[j][1];
-        S s2 =  map_parts[j][2];
-
-        bool cond1 = CGAL::left_turn(s0.source(), s0.target(), hiking_paths[i].source());
-        bool cond2 = CGAL::left_turn(s0.source(), s0.target(), hiking_paths[i].target());
-        bool cond3 = CGAL::left_turn(s1.source(), s1.target(), hiking_paths[i].source());
-        bool cond4 = CGAL::left_turn(s1.source(), s1.target(), hiking_paths[i].target());
-        bool cond5 = CGAL::left_turn(s2.source(), s2.target(), hiking_paths[i].source());
-        bool cond6 = CGAL::left_turn(s2.source(), s2.target(), hiking_paths[i].target());
-
-        if(cond1 && cond2 && cond3 && cond4 && cond5 && cond6) {
-            coverage[i][j] = true;
-        } else {
-            coverage[i][j] = false;
+  // for(auto &elem : map_coverage) {
+  //   for(auto & leg : elem) {
+  //     std::cout << leg << " ";
+  //   }
+  //   std::cout << std::endl;
+  // }
+ 
+  
+  // now i need to do sliding window over map parts and keep track of num maps
+  // containing each leg
+  
+  int l = 0;
+  int r = 0;
+  
+  
+  
+  int num_parts_covered = 0;
+  int min_maps = n;
+  std::vector<int> num_maps_covering(m-1, 0);
+  // loop over map parts
+  
+  while(r < n) {
+    while(num_parts_covered < m-1 && r < n) {
+      for(int leg : map_coverage[r]) {
+        if(num_maps_covering[leg]++ == 0) {
+          num_parts_covered++;
         }
-        
-        std::cout << "Segment " << i << " with Map Part " << j << ": " << std::endl;
-        std::cout << "Segment " << i << " : " <<  hiking_paths[i].source() << " " << hiking_paths[i].target() << std::endl;
-        std::cout << "Map part " << j << " : " << map_parts[j][0] << " " << map_parts[j][1] << " " << map_parts[j][2] << std::endl;
-        std::cout << "Conditions: " << cond1 << cond2 << cond3 << cond4 << cond5 << cond6;
-        std::cout << " Coverage: " << coverage[i][j] << std::endl;
+      }
+      r++;  // move r right only when more coverage is needed
     }
-}
 
+    while(num_parts_covered == m-1) {
+      min_maps = std::min(min_maps, r - l);
+      for(int leg : map_coverage[l]) {
+        if(--num_maps_covering[leg] == 0) {
+          num_parts_covered--;
+        }
+      }
+      l++;  // move l right to try and find a smaller window
+    }
+  }
   
-  
+  std::cout << min_maps << std::endl;
 }
 
 int main() {
