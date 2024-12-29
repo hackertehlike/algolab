@@ -44,5 +44,5 @@ At the top you see the flow graph if we don't take any items.
 Middle shows flow if we take the shorter edge.
 Bottom shows flow if we take the longer edge.
 As you can see, the flow is the same in all cases, so we'll pick the one with the best cost.
-![](https://github.com/hackertehlike/algolab/blob/main/week-10/asterix-and-the-tour-of-gaul/flowg2.jpg))
+![](https://github.com/hackertehlike/algolab/blob/main/week-10/asterix-and-the-tour-of-gaul/flowg2.jpg)
 Here you see what happens to flow if we take both edges. Flow is no longer at maximum capacity.

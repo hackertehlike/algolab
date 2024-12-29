@@ -1,3 +1,5 @@
+///3
+
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -6,109 +8,79 @@ void testcase() {
   std::cout << "new testcase" << std::endl;
   int n, k, w; std::cin >> n >> k >> w;
   
-  std::vector<int> men_requirements;
+  std::vector<int> men_requirements(n);
   
   for(int i = 0; i < n; i++) {
     int ci; std::cin >> ci;
-    std::cout << "c" << i << ": " << ci << std::endl;
-    men_requirements.push_back(ci);
+    
+    men_requirements[i] = ci;
   }
+  
+  std::cout << __LINE__ << std::endl;
   
   std::vector<std::vector<int>> waterways(w);
   
   for(int i = 0; i < w; i++) {
     int l; std::cin >> l;
+    
     for(int j = 0; j < l; j++) {
-      int ri; std::cin >> ri;
-      waterways[i].push_back(ri);
+      int r; std::cin >> r;
+      waterways[i].push_back(r);
     }
   }
   
-  std::vector<std::vector<int>> extended_waterways;
   
-  if(w == 1) extended_waterways.push_back(waterways[0]);
+  std::cout << __LINE__ << std::endl;
+  
+  std::vector<std::vector<int>> super_waterways;
+  
+  if(w == 1) super_waterways.push_back(waterways[0]);
+  
+  std::cout << "waterways: " << waterways.size() << std::endl;
   
   for(int i = 0; i < w; i++) {
     for(int j = i+1; j < w; j++) {
-      std::vector<int> w1 = waterways[i];
-      std::vector<int> w2 = waterways[j];
       
-      std::reverse(w1.begin(), w1.end());
-      
-      std::cout << w1.size() << std::endl;
-       std::cout << w2.size() << std::endl;
-      
-      w1.insert(w1.end(), w2.begin()+1, w2.end());
-      extended_waterways.push_back(w1);
+      // Create a new vector to hold the merged result
+    std::vector<int> merged;
+
+    merged.insert(merged.end(), waterways[i].rbegin(), waterways[i].rend());
+    std::cout << __LINE__ << std::endl;
+    merged.insert(merged.end(), waterways[j].begin(), waterways[j].end());
+    std::cout << __LINE__ << std::endl;
+    super_waterways.push_back(merged);
+    std::cout << __LINE__ << std::endl;
     }
   }
-  
-  // for(auto &ext_wateray: extended_waterways) {
-    // std::cout << "extended waterway: " << std::endl;
-    // for(auto &elem: ext_wateray) std::cout << elem << " ";
-    // std::cout << std::endl;
-  // }
-  
-  int curr_max_islands = - 1;
-  int w_ct = 0;
-  
-  
-  for(auto &waterway : extended_waterways) {
-    
-    // std::cout << "on waterway " << w_ct++ << std::endl;
-    
-    int l = 0;
-    int r = 0;
-    
-    
-    // std::cout << "waterway[0]: " << waterway[0] << std::endl;
+    std::cout << __LINE__ << std::endl;
 
-    int total_men_used = men_requirements[waterway[0]];
+  int max = 0;
+  
+  // for(auto &elem : men_requirements) std::cout << elem << " ";
+  // std::cout << std::endl;
+  
+  for(const auto &waterway : super_waterways) {
+    int l = 0, r = 0, curr_sum = 0;
     
-    while(r < waterway.size() && l < waterway.size()) {
-      
-      // std::cout << "curr interval: " << l << " - " << r << std::endl;
-      // std::cout << "total men used: " << total_men_used << std::endl;
-      if(total_men_used > k) {
-        
-        // std::cout << "too many men" << std::endl;
-        total_men_used = total_men_used - men_requirements[waterway[l++]];
-        if (l > r) {
-          if (r + 1 < waterway.size()) {
-            total_men_used += men_requirements[waterway[++r]];
-          } else {
-              break; // Exit if we can't increase the window size anymore
-          }
+    if (!waterway.empty()) curr_sum = men_requirements[waterway[0]];
+
+    while (r < waterway.size()) {
+        while (curr_sum > k && l <= r) {
+            curr_sum -= men_requirements[waterway[l++]];
         }
 
-      }
-      
-      else if (total_men_used < k) {
-        
-        // std::cout << "too few men" << std::endl;
-        if (r + 1 < waterway.size()) {
-            total_men_used += men_requirements[waterway[++r]];
-        } else {
-            break; // Exit if we can't increase the window size anymore
+        if (curr_sum == k) {
+            max = std::max(max, r - l + 1);
+        }
+
+        if (++r < waterway.size()) {
+            curr_sum += men_requirements[waterway[r]];
         }
     }
+}
 
-      
-      else {
-        // std::cout << "perfect number of men" << std::endl;
-        int len_curr_subway = r - l + 1;
-        if(len_curr_subway > curr_max_islands) {
-          curr_max_islands = len_curr_subway;
-        }
-        r++;
-        l++;
-      }
-      
-    }
-  }
-  
-  if(curr_max_islands == -1) std::cout << "0" << std::endl;
-  else std::cout << curr_max_islands << std::endl;
+  std::cout << __LINE__ << std::endl;
+  std::cout << max << std::endl;
 }
 
 
