@@ -39,10 +39,10 @@ does not. I have confirmed that they are adding the exact same number of edges a
 
 ## Extra
 Here are some graphs explaining that flow does indeed take into account a bottleneck along the path.
-<img src="./flowg1.jpg">
+![](https://github.com/hackertehlike/week-10/asterix-and-the-tour-of-gaul/flowg1.jpg)
 At the top you see the flow graph if we don't take any items.
 Middle shows flow if we take the shorter edge.
 Bottom shows flow if we take the longer edge.
 As you can see, the flow is the same in all cases, so we'll pick the one with the best cost.
-<img src="./flowg2.jpg">
+![](https://github.com/hackertehlike/week-10/asterix-and-the-tour-of-gaul/flowg2.jpg)
 Here you see what happens to flow if we take both edges. Flow is no longer at maximum capacity.
