@@ -98,20 +98,6 @@ void testcase() {
   
   long flow = boost::push_relabel_max_flow(G, v_source, v_sink);
   std::cout << sum_non_hole - flow << "\n";
-  
-
-  // //Retrieve the capacity map and reverse capacity map
-  // const auto c_map = boost::get(boost::edge_capacity, G);
-  // const auto rc_map = boost::get(boost::edge_residual_capacity, G);
-  // // Iterate over all the edges to print the flow along them
-  // auto edge_iters = boost::edges(G);
-  // for (auto edge_it = edge_iters.first; edge_it != edge_iters.second; ++edge_it) {
-  //   const edge_desc edge = *edge_it;
-  //   const long flow_through_edge = c_map[edge] - rc_map[edge];
-  //   std::cout << "edge from " << boost::source(edge, G) << " to " << boost::target(edge, G)
-  //             << " runs " << flow_through_edge
-  //             << " units of flow (negative for reverse direction). \n";
-  // }
 }
 
 int main() {
