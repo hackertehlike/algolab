@@ -11,4 +11,4 @@ This is somewhat similar to [Asterix in Switzerland](https://github.com/hackerte
 
 ## Implementation Details
 - Don't forget to make flow a long. The convenience scores can add up to $>2^32$.
-- Also don't use $2^10$ as infinity value... This is wrong.
+- Also don't use $2^{10}$ as infinity value... This is wrong.
