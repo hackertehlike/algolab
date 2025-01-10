@@ -18,12 +18,12 @@
 ## Disclaimer
 
 I stand on the shoulders of giants.
-I had to look up solutions for a lot of these problems (algolab do be like that :( )). Unfortunately I did not consistently track where I got the solution for which problem, so it is quite difficult for me to go back and find whose solution I've referenced.
+I had to look up solutions for a lot of these problems (algolab do be like that :( ). Unfortunately I did not consistently track where I got the solution for which problem, so it is quite difficult for me to go back and find whose solution I've referenced.
 Below I am listing some repos I have used:
-[](https://github.com/dede1751/algolab)
-[](https://github.com/haeggee/algolab)
-[](https://github.com/daniCh8/eth-algolab-2019)
-[](https://gitlab.ethz.ch/varxth/algolab-theo)
-[](https://github.com/simon-hrabec/Algolab-2020)
+-(https://github.com/dede1751/algolab)
+-(https://github.com/haeggee/algolab)
+-(https://github.com/daniCh8/eth-algolab-2019)
+-(https://gitlab.ethz.ch/varxth/algolab-theo)
+-(https://github.com/simon-hrabec/Algolab-2020)
 
 If you are not on this list but think one or more of my solutions might be inspired (or sometimes straight up copied) by yours, or if you want credits for a specific problem, please don't hesitate to reach out :) And thank you for your service.
