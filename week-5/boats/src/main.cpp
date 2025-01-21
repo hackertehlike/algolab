@@ -9,10 +9,7 @@ struct Boat {
     return p > other.p;
   }
   
-  Boat(int l, int p) {
-    this->l = l;
-    this->p = p;
-  }
+  Boat(int l, int p) : l(l), p(p) { }
 };
 
 void testcase() {
@@ -27,7 +24,6 @@ void testcase() {
   }
   
   // take the first boat fo sho
-  
   Boat curr_boat = boats.top();
   
   int prev_end = curr_boat.p;
@@ -41,23 +37,17 @@ void testcase() {
     curr_boat = boats.top();
     boats.pop();
 
-    
     // we'll have to make a choice since the last boat in consideration is
     // currently occupying the ring
-    if(curr_boat.p < curr_end) {
-      curr_end = std::min(curr_end, std::max(curr_boat.p, prev_end + curr_boat.l));
-    } 
+    if(curr_boat.p < curr_end) curr_end = std::min(curr_end, std::max(curr_boat.p, prev_end + curr_boat.l));
     // this boat lives in harmony with the prev one
     else {
       prev_end = curr_end;
       curr_end = std::max(curr_boat.p, prev_end + curr_boat.l);
       num_boats++;
     }
-    
   }
-  
   std::cout << num_boats << std::endl;
-  
 }
 
 int main() {
