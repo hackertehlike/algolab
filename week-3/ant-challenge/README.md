@@ -1,7 +1,7 @@
 # Solution
 
 ## Approach
-Prim + Dijkstra
+MST + Dijkstra
 
 ## Key Idea
 
